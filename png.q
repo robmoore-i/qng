@@ -13,7 +13,14 @@
 // If a critical chunk's crc fails, abort reading the file, or supply an appropriate warning.
 // If a non-critical chunk's crc fails or it's not understood, it can just be discarded.
 
-// ================================================================================================
+// === Libpng ===
+\d .libpng
+
+version:`libpngk 2:(`version;1)
+
+// === Wheel reinvention (temporary) ===
+
+\d .qng
 
 // Every valid PNG file starts with the bytes 0x89504e470d0a1a0a
 pngsigniature:(0x89) , ("x"$"PNG") , "x"$/:13 10 26 10
@@ -30,9 +37,7 @@ parseIHDR:{[ihdr]
     if[not "IHDR"~components 1;'notihdr];
     `width`height`bitdepth`colourtype`compression`filter`interlace`crc!2 8 sublist @[components;4 5 6 7 8;first]}
 
-// ================================================================================================
-
-verbose:{[fh]
+processverbose:{[fh]
     -1 "- Reading `:blueblock.png bytes: ";
     -1 raze string bytes:read1 fh;
     -1 "- Checking pngheader: ",string checksigniature bytes;
