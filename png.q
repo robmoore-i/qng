@@ -18,7 +18,7 @@
 
 libpngk:{`libpngk 2: (x;1)}
 version:libpngk `version
-checkpng:libpngk `checkpng;
+k)checkpng:{(libpngk `checkpng) `$1_$:x}
 
 // === Wheel reinvention (temporary) ===
 
