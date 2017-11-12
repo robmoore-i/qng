@@ -10,11 +10,9 @@ K version(K x) {
 }
 
 K checkpng(K x) {
-    C* fn = kC(x);
-    FILE *fp = fopen(fn, "rb");
+    FILE *fp = fopen(x->s, "rb");
     if (!fp) {
-        fclose(fp);
-        return krr(fn);
+        return krr(x->s);
     }
 
     void *header = malloc(10);
