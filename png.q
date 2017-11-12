@@ -16,8 +16,9 @@
 // === Libpng ===
 \d .libpng
 
-version:`libpngk 2:(`version;1)
-// checkpng:`libpngk 2:(`checkpng;1)
+libpngk:{`libpngk 2: (x;1)}
+version:libpngk `version
+checkpng:libpngk `checkpng;
 
 // === Wheel reinvention (temporary) ===
 
