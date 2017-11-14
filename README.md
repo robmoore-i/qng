@@ -77,6 +77,6 @@ scipy: 120ms
 ```
 ¯\_(ツ)_/¯
 
-## Errors
+## Exception Handling
 
 Will throw 'png if you give it non-pngs
