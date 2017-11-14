@@ -4,6 +4,12 @@
 
 #define KXVER 3
 #include "k.h"
+#define kthrow(x) R krr(x)
+
+typedef struct png_rob_data {
+    png_structp png_ptr;
+    png_infop info_ptr;
+} png_rob_data;
 
 K version(K x) {
     R kp(PNG_LIBPNG_VER_STRING);
@@ -49,32 +55,31 @@ K checkpng(K x) {
 K dimensions(K x){
     FILE *fp;
     if (!(fp = open_if_valid(x))) {
-        R krr("png");
+        kthrow("png");
     }
 
     png_structp png_ptr = png_create_read_struct(PNG_LIBPNG_VER_STRING, NULL, NULL, NULL);
 
     if (!png_ptr) {
-        R krr("png_ptr");
+        kthrow("png_ptr");
     }
 
     png_infop info_ptr = png_create_info_struct(png_ptr);
 
     if (!info_ptr) {
         png_destroy_read_struct(&png_ptr, (png_infopp) NULL, (png_infopp) NULL);
-        R krr("info_ptr");
+        kthrow("info_ptr");
     }
 
     if (setjmp(png_jmpbuf(png_ptr))) {
         png_destroy_read_struct(&png_ptr, &info_ptr, (png_infopp) NULL);
         fclose(fp);
-        R krr("setjmp");
+        kthrow("setjmp");
     }
 
     png_init_io(png_ptr, fp);
     size_t sig_size = 8;
     png_set_sig_bytes(png_ptr, sig_size);
-
     png_read_info(png_ptr, info_ptr);
 
     int width = 0;
