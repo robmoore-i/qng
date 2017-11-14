@@ -28,8 +28,9 @@ checkpng:fromfh `checkpng
 // Returns a two element I list of (width;height)
 dimensions:{`width`height!fromfh[`dimensions] x}
 
-// Returns a two element I list of (width;height)
-pixels:fromfh `pixels
+// Returns a dictionary of `r`g`b`a!(red;green;blue;alpha)
+// where each value is a height*width matrix of pixel values (aka a list of rows).
+pixels:{`r`g`b`a!"h"$/:dimensions[x][`width] cut/: fromfh[`pixels] x}
 
 // === Wheel reinvention (temporary) ===
 
