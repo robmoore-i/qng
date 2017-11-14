@@ -22,7 +22,7 @@ did sudo apt install zlib* libpng16*).
 - pixels
 
 ### Demonstration:
-
+```
 $rob q png.q
 q).png.libpngversion[]
 "1.6.20"
@@ -52,17 +52,17 @@ q)count pixels[`r]
 884
 q)count first pixels[`r]
 840
-
+```
 ## Performance
 
 qng: 162ms
-
+```
 q)\t .png.pixels `:dustin.png
 162
 q)
-
+```
 scipy: 120ms
-
+```
 >>> import scipy.misc as scpm
 >>> import time
 >>> def getReadTime():
@@ -74,7 +74,7 @@ scipy: 120ms
 >>> getReadTime()
 0.1199188232421875
 >>>
-
+```
 ¯\_(ツ)_/¯
 
 ## Errors
