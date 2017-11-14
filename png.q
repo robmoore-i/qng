@@ -26,7 +26,7 @@ version:libpngk `version
 checkpng:fromfh `checkpng
 
 // Returns a two element I list of (width;height)
-dimensions:fromfh `dimensions
+dimensions:{`width`height!fromfh[`dimensions] x}
 
 // Returns a two element I list of (width;height)
 pixels:fromfh `pixels

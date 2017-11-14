@@ -56,12 +56,14 @@ K dimensions(K x){
     png_structp png_ptr = png_create_read_struct(PNG_LIBPNG_VER_STRING, NULL, NULL, NULL);
 
     if (!png_ptr) {
+        fclose(fp);
         kthrow("png_ptr");
     }
 
     png_infop info_ptr = png_create_info_struct(png_ptr);
 
     if (!info_ptr) {
+        fclose(fp);
         png_destroy_read_struct(&png_ptr, (png_infopp) NULL, (png_infopp) NULL);
         kthrow("info_ptr");
     }
@@ -80,7 +82,7 @@ K dimensions(K x){
     int width = 0;
     int height = 0;
     png_get_IHDR(png_ptr, info_ptr, &width, &height, NULL, NULL, NULL, NULL, NULL);
-
+    fclose(fp);
     K dim = ktn(KI, 0);
     ja(&dim, &width);
     ja(&dim, &height);
@@ -96,6 +98,7 @@ K pixels(K x){
     png_structp png_ptr = png_create_read_struct(PNG_LIBPNG_VER_STRING, NULL, NULL, NULL);
 
     if (!png_ptr) {
+        fclose(fp);
         kthrow("png_ptr");
     }
 
@@ -103,6 +106,7 @@ K pixels(K x){
 
     if (!info_ptr) {
         png_destroy_read_struct(&png_ptr, (png_infopp) NULL, (png_infopp) NULL);
+        fclose(fp);
         kthrow("info_ptr");
     }
 
@@ -131,5 +135,23 @@ K pixels(K x){
         row_pointers[row] = png_malloc(png_ptr, png_get_rowbytes(png_ptr, info_ptr));
     }
 
-    R kp("works");
+    png_read_image(png_ptr, row_pointers);
+    png_read_end(png_ptr, info_ptr);
+
+    K red = ktn(KG, 0);
+    K green = ktn(KG, 0);
+    K blue = ktn(KG, 0);
+    K alpha = ktn(KG, 0);
+    for (int y = 0;y < height; y++) {
+        png_bytep row = row_pointers[y];
+        for (int x = 0; x < width; x++) {
+            png_bytep px = &(row[x * 4]);
+            ja(&red, &px[0]);
+            ja(&green, &px[1]);
+            ja(&blue, &px[2]);
+            ja(&alpha, &px[3]);
+        }
+    }
+    fclose(fp);
+    R knk(4, red, green, blue, alpha);
 }
