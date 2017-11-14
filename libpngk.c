@@ -6,7 +6,7 @@
 #include "k.h"
 #define kthrow(x) R krr(x)
 
-K version(K x) {
+K libpngversion(K x) {
     R kp(PNG_LIBPNG_VER_STRING);
 }
 

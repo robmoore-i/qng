@@ -5,7 +5,7 @@ libpngk:{`libpngk 2: (x;1)}
 k)fromfh:{{x `$1_$:y}[libpngk x;]}
 
 // Returns the version string of libpng
-version:libpngk `version
+libpngversion:libpngk `libpngversion
 
 // Returns 1b for a valid png, 0b for an invalid png
 checkpng:fromfh `checkpng
