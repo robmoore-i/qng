@@ -37,6 +37,7 @@ pngsigniature:(0x89) , ("x"$"PNG") , "x"$/:13 10 26 10
 checksigniature:{[bytes]pngsigniature~8#bytes}
 dropsigniature:{8_x}
 
+// PNGs are made up of chunks as specified at the top of the file
 takechunk:{[bytes](12+0x0 sv 4#bytes)#bytes}
 dropchunk:{[bytes](12+0x0 sv 4#bytes)_bytes}
 parsechunk:{[chunk]`length`type`data`crc!(0x0 sv 4#chunk;"c"$4_8#chunk;-4_8_chunk;-4#chunk)}
