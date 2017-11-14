@@ -17,16 +17,19 @@
 \d .libpng
 
 libpngk:{`libpngk 2: (x;1)}
-k)fromfh:{x `$1_$:y}
+k)fromfh:{{x `$1_$:y}[libpngk x;]}
 
 // Returns the version string of libpng
 version:libpngk `version
 
 // Returns 1b for a valid png, 0b for an invalid png
-checkpng:fromfh[libpngk `checkpng;]
+checkpng:fromfh `checkpng
 
 // Returns a two element I list of (width;height)
-dimensions:fromfh[libpngk `dimensions;]
+dimensions:fromfh `dimensions
+
+// Returns a two element I list of (width;height)
+pixels:fromfh `pixels
 
 // === Wheel reinvention (temporary) ===
 
