@@ -2,7 +2,7 @@
 
 Simple png interface for q
 
-## Requirements:
+## Requirements
 
 - QHOME set, such that QHOME/l64/ is the directory containing
 your 64 bit q binary
@@ -11,7 +11,7 @@ your 64 bit q binary
 - Currently tested only on linux, should extend easily to *nix,
 not sure about windows. (I'm using ubuntu 16.04)
 
-## Build:
+## Build
 
 ```
 you$ git clone https://github.com/robknows/qng.git
@@ -27,14 +27,14 @@ q)key`
 q) // And away you go
 ```
 
-## Functions:
+## Functions
 
 - libpngversion
 - checkpng
 - dimensions
 - pixels
 
-### Demonstration:
+### Demonstration
 ```
 $rob q png.q
 q).png.libpngversion[]
