@@ -4,15 +4,28 @@ Simple png interface for q
 
 ## Requirements:
 
-- QHOME set, such that QHOME/l64/ is the directory containing your 64 bit q binary
-- libpng (I'm using 1.6.20, downloaded using ubuntu package manager)
+- QHOME set, such that QHOME/l64/ is the directory containing
+your 64 bit q binary
+- libpng (I'm using 1.6.20, downloaded using package manager)
 - zlib (I'm using 1.2.5, installed using package manager)
+- Currently tested only on linux, should extend easily to *nix,
+not sure about windows. (I'm using ubuntu 16.04)
 
 ## Build:
 
-Since I don't know exactly which libraries were necessary in the end to make it work,
-the build script is not at all conservative with the packages it downloads (I basically
-did sudo apt install zlib* libpng16*).
+```
+you$ git clone https://github.com/robknows/qng.git
+you$ cd qng
+you$ ./build.sh
+# Verifies environment variables
+# Downloads dependencies
+# Compiles C into QHOME/l64/
+# Verifies that everything is okay
+you$ q64 png.q
+q)key`
+`q`Q`h`j`o`png
+q) // And away you go
+```
 
 ## Functions:
 
@@ -79,4 +92,4 @@ scipy: 120ms
 
 ## Exception Handling
 
-Will throw 'png if you give it non-pngs
+Throws 'png if you give it non-pngs
