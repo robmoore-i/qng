@@ -26,14 +26,14 @@ did sudo apt install zlib* libpng16*).
 $rob q png.q
 q).png.libpngversion[]
 "1.6.20"
-q).png.checkpng `:blueblock.png
+q).png.checkpng `:images/blueblock.png
 1b
 q).png.checkpng `:README.md
 0b
-q).png.dimensions `:dustin.png
+q).png.dimensions `:images/dustin.png
 width | 840
 height| 884
-q)pixels:.png.pixels `:dustin.png
+q)pixels:.png.pixels `:images/dustin.png
 q)pixels
 r| 14  14  14  14  14  14  14  14  14  14  14  14  14  14  14  14 14 14 14 14..
 g| 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13..
@@ -57,7 +57,7 @@ q)count first pixels[`r]
 
 qng: 162ms
 ```
-q)\t .png.pixels `:dustin.png
+q)\t .png.pixels `:images/dustin.png
 162
 q)
 ```
