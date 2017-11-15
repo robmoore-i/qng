@@ -31,5 +31,7 @@ hashbang="#!$QHOME/l64/q"
 sed -i "1c$hashbang" test-installation.q
 echo "Verifying installation"
 $QHOME/l64/q test-installation.q -q
+echo "Copying png.q to QHOME"
+cp png.q $QHOME
 echo "All done"
 exit 0

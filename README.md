@@ -21,7 +21,9 @@ you$ ./build.sh
 # Downloads dependencies
 # Compiles C into QHOME/l64/
 # Verifies that everything is okay
-you$ q64 png.q
+# Moves png.q into QHOME so you can load it from any q session
+you$ q64
+q)\l png.q
 q)key`
 `q`Q`h`j`o`png
 q) // And away you go
