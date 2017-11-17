@@ -70,26 +70,30 @@ q)count first pixels[`r]
 ```
 ## Performance
 
-qng: 92ms
+- Measure time to read all the pngs in images/
+
+qng: 102ms
 ```
-q)\t .png.pixels `:images/dustin.png
-92
+q)\t .png.pixels each {` sv/: x,/:key[x]} `:images
+102
 q)
 ```
-scipy: 120ms
+scipy: 106ms
 ```
 >>> import scipy.misc as scpm
+>>> import os
 >>> import time
->>> def getReadTime():
-...     start = time.time()
-...     scpm.imread('dustin.png')
-...     end = time.time()
-...     print(end - start)
-...
->>> getReadTime()
-0.1199188232421875
+>>> imagepaths = [os.path.join('images', f) for f in os.listdir('images')]
+>>> def timeAll():
+...     start=time.time()
+...     for png in imagespaths:
+...             scpm.imread(png)
+...     t=time.time()-start
+...     print(t)
+... 
+>>> timeAll()
+0.10645079612731934
 >>>
-```
 
 `¯\_(ツ)_/¯`
 
