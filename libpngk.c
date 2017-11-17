@@ -138,18 +138,18 @@ K pixels(K x){
     png_read_image(png_ptr, row_pointers);
     png_read_end(png_ptr, info_ptr);
 
-    K red = ktn(KG, 0);
-    K green = ktn(KG, 0);
-    K blue = ktn(KG, 0);
-    K alpha = ktn(KG, 0);
+    K red = ktn(KG, width*height);
+    K green = ktn(KG, width*height);
+    K blue = ktn(KG, width*height);
+    K alpha = ktn(KG, width*height);
     for (int y = 0;y < height; y++) {
         png_bytep row = row_pointers[y];
         for (int x = 0; x < width; x++) {
             png_bytep px = &(row[x * 4]);
-            ja(&red, &px[0]);
-            ja(&green, &px[1]);
-            ja(&blue, &px[2]);
-            ja(&alpha, &px[3]);
+            red->G0[x+y*width]   = px[0];
+            green->G0[x+y*width] = px[1];
+            blue->G0[x+y*width]  = px[2];
+            alpha->G0[x+y*width] = px[3];
         }
     }
     fclose(fp);
