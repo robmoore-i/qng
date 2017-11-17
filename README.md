@@ -84,16 +84,17 @@ scipy: 106ms
 >>> import os
 >>> import time
 >>> imagepaths = [os.path.join('images', f) for f in os.listdir('images')]
->>> def timeAll():
+>>> def timeAllReads():
 ...     start=time.time()
 ...     for png in imagespaths:
 ...             scpm.imread(png)
 ...     t=time.time()-start
 ...     print(t)
 ... 
->>> timeAll()
+>>> timeAllReads()
 0.10645079612731934
 >>>
+```
 
 `¯\_(ツ)_/¯`
 
