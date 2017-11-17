@@ -73,7 +73,7 @@ q)count first pixels[`r]
 qng: 162ms
 ```
 q)\t .png.pixels `:images/dustin.png
-162
+92
 q)
 ```
 scipy: 120ms
@@ -90,7 +90,7 @@ scipy: 120ms
 0.1199188232421875
 >>>
 ```
-¯\_(ツ)_/¯
+`¯\_(ツ)_/¯`
 
 ## Exception Handling
 
