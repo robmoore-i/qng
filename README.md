@@ -70,7 +70,7 @@ q)count first pixels[`r]
 ```
 ## Performance
 
-qng: 162ms
+qng: 92ms
 ```
 q)\t .png.pixels `:images/dustin.png
 92
