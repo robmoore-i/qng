@@ -35,6 +35,7 @@ q) // And away you go
 - checkpng
 - dimensions
 - pixels
+- write
 
 ### Demonstration
 ```
@@ -67,6 +68,11 @@ q)count pixels[`r]
 884
 q)count first pixels[`r]
 840
+q)r:10#enlist 10#0
+q)g:10#enlist 10#255
+q)b:10#enlist 10#0
+q).png.write[`:littleGreenSquare.png;`r`g`b!(r;g;b)]
+q)
 ```
 ## Performance
 
