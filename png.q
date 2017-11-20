@@ -20,7 +20,7 @@ pixels:{`r`g`b!"h"$/:dimensions[x][`width] cut/: fromfh[`readpng] x}
 // Signals length unless x, y and z have the same 2D shape.
 checkdimensions:{
     if[(cx:count x)<>cy:count y;'length];
-    if[cx<>cz:count y;'length];
+    if[cx<>cz:count z;'length];
     if[cy<>cz;'length];
     if[(cfx:count first x)<>cfy:count first y;'length];
     if[cfx<>cfz:count first z;'length];
