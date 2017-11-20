@@ -15,7 +15,11 @@ dimensions:{`width`height!fromfh[`dimensions] x}
 
 // Returns a dictionary of `r`g`b`a!(red;green;blue;alpha)
 // where each value is a height*width matrix of pixel values (aka a list of rows).
-pixels:{`r`g`b`a!"h"$/:dimensions[x][`width] cut/: fromfh[`pixels] x}
+pixels:{`r`g`b!"h"$/:dimensions[x][`width] cut/: fromfh[`readpng] x}
+
+write:{[fn;w;h;rbuf;gbuf;bbuf]
+    f:`libpngk 2: (`writepng;6);
+    f[`$1_string fn;"i"$w;"i"$h;"h"$rbuf;"h"$gbuf;"h"$bbuf]}
 
 // === Note on PNGs ===
 
