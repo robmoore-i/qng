@@ -39,7 +39,7 @@ q) // And away you go
 
 ### Demonstration
 ```
-$rob q png.q
+$rob q64 png.q
 q).png.libpngversion[]
 "1.6.20"
 q).png.checkpng `:images/blueblock.png
@@ -54,7 +54,6 @@ q)pixels
 r| 14  14  14  14  14  14  14  14  14  14  14  14  14  14  14  14 14 14 14 14..
 g| 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13..
 b| 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14..
-a| 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 25..
 q)pixels `r
 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14..
 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14..
@@ -107,4 +106,8 @@ scipy: 106ms
 
 ## Exception Handling
 
+Throws '{filename} for a {filename} that doesn't exist.
 Throws 'png if you give it non-pngs
+There are some other error cases, but I've never seen them and I don't know
+why they would happen other than some kind of corruption of the png file being
+read. They are 'setjmp 'png_ptr 'info_ptr and 'setjmp .
