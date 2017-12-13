@@ -110,4 +110,4 @@ Throws '{filename} for a {filename} that doesn't exist.
 Throws 'png if you give it non-pngs
 There are some other error cases, but I've never seen them and I don't know
 why they would happen other than some kind of corruption of the png file being
-read. They are 'setjmp 'png_ptr 'info_ptr and 'setjmp .
+read. They are 'png_ptr 'info_ptr and 'setjmp.
