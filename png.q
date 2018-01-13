@@ -49,7 +49,7 @@ write:{[fn;pixels]
 // IEND chunk
 
 // === CHUNK FORMAT ===
-// Chunks are (datalength;chunktype;   data     ;   crc).
+// Chunks are (datalength;chunktype;data     ;   crc).
 // with sizes (4 bytes   ;4 bytes  ;??? bytes;4 bytes).
 // The 4 critical chunks are IHDR (header), PLTE (palette), IDAT (data), IEND (eof).
 // If the first letter of the chunktype is upper case, then the chunk is considered critical.

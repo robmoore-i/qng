@@ -4,7 +4,7 @@
 
 expectedDim:([] width:172 840 530 640i;height:151 884 298 156i)
 actualDim:.png.dimensions each {` sv/: x,/:key x} `:images
-expectedPx:0 0 255 255f
+expectedPx:0 0 255f
 actualPx:{avg raze x} each value .png.pixels `:images/blueblock.png
 
 verify:{[title;expected;actual]
